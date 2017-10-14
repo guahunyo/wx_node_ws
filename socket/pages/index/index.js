@@ -8,7 +8,6 @@ Page({
     wx.connectSocket({
       url: wsApi,
       data:{
-        username:"111"
       },
       header:{ 
         'content-type': 'application/json'
