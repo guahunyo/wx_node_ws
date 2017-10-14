@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt1"/>
+</body>
+<script>
+	var socket = new WebSocket("ws://192.168.1.105:3001");
+	socket.onopen = function(){
+		console.log("connect to server");
+	}
+	socket.onmessage = function(ev){
+		console.log(ev.data);
+	}
+	var txt1 = document.getElementById("txt1");
+	txt1.onchange = function (){
+		socket.send(this.value);
+	}
+</script>
+</html>
